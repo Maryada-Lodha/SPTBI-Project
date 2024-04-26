@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const founderSchema = new Schema({
+const fundRaisedSchema = new Schema({
     sptbi_id: {
         type: String,
         required: true
@@ -10,40 +10,30 @@ const founderSchema = new Schema({
         type: String,
         required: true
     },
-    founder_name: {
+    financial_year: {
         type: String,
         required: true
     },
-    gender:{
-        type: String,
+    amount: {
+        type: Number,
         required: true
     },
-    designation: {
-        type: String,
-        required: true
-    },
-    mobile: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    dob: {
+    date_of_fund_raised: {
         type: Date,
         required: true
     },
-    qualification: {
+    type_of_funding: {
         type: String,
         required: true
     },
-    working_experience: {
+    funding_agency: {
         type: String,
         required: true
     },
-    din_no: {
-        type: String,
+    valuation: {
+        type: Number,
         required: true
     },
 });
+
+module.exports = mongoose.model('fundRaised', fundRaisedSchema);
