@@ -1,0 +1,153 @@
+.header-t {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto; 
+  background-color: #ffffff; 
+  color: blue;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  padding: 5px 0;
+  margin: 0%;
+  text-align: center;
+}
+
+.logo1 {
+  width: 15rem;
+  height: auto;
+  margin-left: 15px;
+}
+.logo2 {
+  width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    margin-right: 15px;
+}
+
+.header-titles {
+  flex-grow: 1; 
+  text-align: center;
+}
+
+.header-titles h1,
+.header-titles h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-titles h3 {
+  font-weight: normal;
+  color: black;
+}
+.header-titles h1{
+  font-size: x-large;
+  font-weight: 300;
+}
+
+.navbar {
+  background-color: #1c4386;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar li.active {
+  border-bottom: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.navbar li:not(:first-child) {
+  margin-left: 40px; 
+}
+.header-t {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto; 
+  background-color: #ffffff; 
+  color: blue;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  padding: 5px 0;
+  margin: 0%;
+  text-align: center;
+}
+
+.logo1 {
+  width: 15rem;
+  height: auto;
+}
+
+.header-titles {
+  flex-grow: 1; 
+  text-align: center;
+}
+
+.header-titles h1,
+.header-titles h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-titles h3 {
+  font-weight: normal;
+  color: black;
+}
+
+.navbar {
+  background-color: #1c4386;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar li.active {
+  border-bottom: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.navbar li:not(:first-child) {
+  margin-left: 40px; 
+}

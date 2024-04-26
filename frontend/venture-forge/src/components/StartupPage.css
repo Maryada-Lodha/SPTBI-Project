@@ -1,0 +1,178 @@
+.container {
+    position: relative;
+    margin: 50px;
+    
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  .search-container {
+    margin: 0 auto; 
+    margin-left: 20px; 
+    margin-right: 20px; 
+  }
+  
+  input[type="text"] {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  button {
+    width: 100px;
+    padding: 10px;
+    background-color: #1c4386;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    max-height: 160px; 
+    overflow-y: auto; 
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .startup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .startup-info {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    gap: 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  @media screen and (max-width: 1200px) {
+    .startup-info {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .startup-info {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .startup-field {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .field-name {
+    font-weight: bold;
+  }
+  
+  .field-value {
+    margin-top: 5px;
+  }
+  .startup-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .chart-section, .progress-bar-section {
+    flex: 1;
+    padding: 0 10px;
+    min-width: 250px;
+  }
+  
+  .chart-container {
+    height: 300px;
+  }
+  
+  .progress-bar-section {
+    margin-top: 10px;
+    padding: 20px; 
+    border-radius: 8px; 
+    background-color: #f0f0f0; 
+  }
+  
+  .status-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+  }
+  /* Existing CSS */
+
+/* Add this CSS for hover effect on dropdowns */
+.select-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.select-container > * {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.select-container select {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-container select:focus {
+  border-color: #1c4386; /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(28, 67, 134, 0.5); /* Add box shadow when focused */
+}
+
+.select-container select:hover {
+  background-color: #f2f2f2; /* Change background color on hover */
+}
+
+/* Style the dropdown arrow */
+.select-container select:after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Adjust the appearance of the dropdown options */
+.select-container select option {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Adjust the appearance of the selected option */
+.select-container select option:checked {
+  background-color: #1c4386;
+  color: #fff;
+}
