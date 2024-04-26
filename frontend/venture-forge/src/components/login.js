@@ -11,7 +11,7 @@ export default function Login() {
 			  alt="Your Company"
 			/> */}
 			<h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-600">
-			  Sign in 
+			  Sign in to your account
 			</h2>
 		  </div>
   
