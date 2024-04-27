@@ -47,11 +47,11 @@ const basicInfoSchema = new Schema({
         required: true
     },
     year_of_incubaion: {
-        type: Number,
+        type: String,
         required: true
     },
     year_of_graduation: {
-        type: Number,
+        type: String,
         required: true
     },
     no_of_founders: {
@@ -132,7 +132,7 @@ const basicInfoSchema = new Schema({
     },
     trl: {
         type: String,
-        // required: true
+        required: true
     },
     agreement_status: {
         type: String,
@@ -148,12 +148,9 @@ const basicInfoSchema = new Schema({
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
-    sector: {
-        type: String,
-        required: true
-    },
+
 
 });
 

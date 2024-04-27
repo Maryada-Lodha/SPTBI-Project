@@ -10,11 +10,15 @@ const impactSchema = new Schema({
         type: String,
         required: true
     },
+    year: {
+        type: Number,
+        required: true
+    },
     revenue: {
         type: Number,
         required: true
     },
-    investment: {
+    investment_raised: {
         type: Number,
         required: true
     },
@@ -28,11 +32,11 @@ const impactSchema = new Schema({
     },
     awards: {
         type: Number,
-        required: true
+        // required: true
     },
     remarks: {
         type: String,
-        required: true
+        // required: true
     },
 });
 

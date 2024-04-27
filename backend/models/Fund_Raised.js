@@ -28,11 +28,11 @@ const fundRaisedSchema = new Schema({
     },
     funding_agency: {
         type: String,
-        required: true
+        // required: true
     },
     valuation: {
         type: Number,
-        required: true
+        // required: true
     },
 });
 

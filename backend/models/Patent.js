@@ -24,7 +24,7 @@ const patentSchema = new Schema({
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     status: {
         type: String,
@@ -32,15 +32,15 @@ const patentSchema = new Schema({
     },
     publication_no: {
         type: String,
-        required: true
+        // required: true
     },
     publication_date: {
         type: Date,
-        required: true
+        // required: true
     },
     publication_year: {
         type: Number,
-        required: true
+        // required: true
     },
     publication_country_name: {
         type: String,
@@ -56,7 +56,7 @@ const patentSchema = new Schema({
     },
     link_of_source: {
         type: String,
-        required: true
+        // required: true
     },
     type_of: {
         type: String,

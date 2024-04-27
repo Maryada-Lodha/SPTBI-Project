@@ -43,7 +43,7 @@ const fundDisbursment = new Schema({
         required: true
     },
     fund_cycle: {
-        type: String,
+        type: Number,
         required: true
     },
 

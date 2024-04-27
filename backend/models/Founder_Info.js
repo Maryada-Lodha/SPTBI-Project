@@ -52,23 +52,23 @@ const founderSchema = new Schema({
     },
     onepagerlink: {
         type: String,
-        required: true
+        // required: true
     },
     linkedin: {
         type: String,
-        required: true
+        // required: true
     },
     twitter: {
         type: String,
-        required: true
+        // required: true
     },
     facebook: {
         type: String,
-        required: true
+        // required: true
     },
     instagram: {
         type: String,
-        required: true
+        // required: true
     },
     spitconnection: {
         type: String,
