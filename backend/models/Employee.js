@@ -28,7 +28,7 @@ const employeeSchema = new Schema({
     },
     exit_date: {
         type: Date,
-        required: true
+        // required: true
     },
 
 });

@@ -32,31 +32,31 @@ const basicInfoSchema = new Schema({
     },
     aggrement_date: {
         type: Date,
-        required: true
+        // required: true
     },
     program_start_date: {
         type: Date,
-        required: true
+        // required: true
     },
     end_date: {
         type: Date,
-        required: true
+        // required: true
     },
     timeline_in_months: {
         type: Number,
-        required: true
+        // required: true
     },
     year_of_incubaion: {
         type: String,
-        required: true
+        // required: true
     },
     year_of_graduation: {
         type: String,
-        required: true
+        // required: true
     },
     no_of_founders: {
         type: Number,
-        required: true
+        // required: true
     },
     no_of_women_founders: {
         type: Number,
@@ -64,7 +64,7 @@ const basicInfoSchema = new Schema({
     },
     name_of_founders: {
         type: String,
-        required: true
+        // required: true
     },
     spit_connection: {
         type: String,
@@ -132,11 +132,11 @@ const basicInfoSchema = new Schema({
     },
     trl: {
         type: String,
-        required: true
+        // required: true
     },
     agreement_status: {
         type: String,
-        required: true
+        // required: true
     },
     funded_amount: {
         type: Number,
@@ -144,7 +144,7 @@ const basicInfoSchema = new Schema({
     },
     date_of_admission: {
         type: Date,
-        required: true
+        // required: true
     },
     description: {
         type: String,
