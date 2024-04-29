@@ -1,0 +1,33 @@
+[
+    {
+      "SPTBI_ID": "369",
+      "Company Name": "369 ZOSSWATER PRODUCTS PRIVATE LIMITED",
+      "Financial Year": "2023-2024",
+      "Amount": "$500,000",
+      "Date": "2023-10-15",
+      "Type of Funding": "Seed Funding",
+      "Funding Agency/Investor": "VentureX Capital",
+      "Valuation": "$2,000,000"
+    },
+    {
+      "SPTBI_ID": "370",
+      "Company Name": "AMBRONICS PRIVATE LIMITED",
+      "Financial Year": "2023-2024",
+      "Amount": "$750,000",
+      "Date": "2023-09-28",
+      "Type of Funding": "Series A Funding",
+      "Funding Agency/Investor": "TechVest Partners",
+      "Valuation": "$5,000,000"
+    },
+    {
+      "SPTBI_ID": "371",
+      "Company Name": "ARKASHINE INNOVATIONS PRIVATE LIMITED",
+      "Financial Year": "2023-2024",
+      "Amount": "$1,200,000",
+      "Date": "2023-11-05",
+      "Type of Funding": "Pre-Series B Funding",
+      "Funding Agency/Investor": "InnovateX Ventures",
+      "Valuation": "$8,500,000"
+    }
+  ]
+  

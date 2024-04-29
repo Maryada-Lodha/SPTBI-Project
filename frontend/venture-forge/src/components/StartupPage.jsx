@@ -4,6 +4,10 @@ import Chart from 'chart.js/auto';
 import { useRef } from 'react';
 import ProgressBar from './ProgressBar';
 import startupData from './StartupData.json';
+import founderData from './Founder.json'; 
+import fundsData from './funds.json';
+import fundsForImpactData from './impact.json'
+
 import Navbar from './Navbar';
 
 const StartupPage = () => {
@@ -18,6 +22,7 @@ const StartupPage = () => {
   const [patentStatusFilter, setPatentStatusFilter] = useState('');
   const [yearOfIncubationFilter, setYearOfIncubationFilter] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [displayType, setDisplayType] = useState('basic');
   const suggestionDropdownRef = useRef(null);
   let chartRef = useRef(null);
   
@@ -37,6 +42,8 @@ const StartupPage = () => {
     setSuggestions(filteredStartups);
     setShowSuggestions(true);
   };
+
+  
 
   const handleSupportedProgramFilterChange = (value) => {
     setSupportedProgramFilter(value);
@@ -75,17 +82,42 @@ const StartupPage = () => {
     
   };
 
+  const handleDisplayFunds = () => {
+    if (startupInfo) {
+      // Find the funds data for the selected startup (if available)
+      const fundsInfo = fundsData.find(fund => fund["Company Name"] === startupInfo["Company Name"]);
+      if (fundsInfo) {
+        // Set the startup info to the found funds data
+        setStartupInfo(fundsInfo);
+        // Set the display type to 'funds'
+        setDisplayType('funds');
+      }
+    }
+  };
+  const handleDisplayFundsForImpact = () => {
+    if (startupInfo) {
+      // Find the funds for impact data for the selected startup (if available)
+      const fundsForImpactInfo = fundsForImpactData.find(fund => fund["Company Name"] === startupInfo["Company Name"]);
+      if (fundsForImpactInfo) {
+        // Set the startup info to the found funds for impact data
+        setStartupInfo(fundsForImpactInfo);
+        // Set the display type to 'fundsForImpact'
+        setDisplayType('fundsForImpact');
+      }
+    }
+  };
+
   useEffect(() => {
     handleSearch();
   }, [startupName, supportedProgramFilter, domainFilter, womenFounderFilter, statusFilter, patentStatusFilter, yearOfIncubationFilter]);
 
   useEffect(() => {
-    if (startupInfo) {
+    if (startupInfo && displayType === 'basic') {
       const ctx = chartRef.current.getContext('2d');
       if (chartInstance) {
-        chartInstance.destroy(); 
+        chartInstance.destroy();
       }
-
+  
       const newChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -114,10 +146,11 @@ const StartupPage = () => {
           }
         }
       });
-
-      setChartInstance(newChartInstance); 
+  
+      setChartInstance(newChartInstance);
     }
-  }, [startupInfo]);
+  }, [startupInfo, displayType]);
+  
 
   const getProgressData = (status) => {
     let progress = 0;
@@ -151,6 +184,35 @@ const StartupPage = () => {
       setShowSuggestions(false);
     }
   }, [suggestions]);
+  const handleDisplayTypeChange = (type) => {
+    setDisplayType(type);
+    switch (type) {
+      case 'basic':
+        if (startupInfo) {
+          const basicData = startupData.find(startup => startup["Company Name"] === startupInfo["Company Name"]);
+          setStartupInfo(basicData);
+        }
+        break;
+      case 'founder':
+        // No need to change startupInfo here as it's already set
+        break;
+      case 'funds':
+        if (startupInfo) {
+          const fundsInfo = fundsData.find(fund => fund["Company Name"] === startupInfo["Company Name"]);
+          setStartupInfo(fundsInfo);
+        }
+        break;
+        case 'fundsForImpact': // Changed from 'funds' to 'fundsForImpact'
+        if (startupInfo) {
+          const fundsForImpactInfo = fundsForImpactData.find(fund => fund["Company Name"] === startupInfo["Company Name"]);
+          setStartupInfo(fundsForImpactInfo);
+        }
+        break;
+      default:
+        break;
+    }
+  };
+  
 
   
 
@@ -203,6 +265,13 @@ const StartupPage = () => {
             {/* Add more options */}
           </select>
           </div>
+          <div>
+          {/* Buttons to switch between basic info and founder info */}
+          <button onClick={() => handleDisplayTypeChange('basic')}>Basic Info</button>
+          <button onClick={() => handleDisplayTypeChange('founder')}>Founder Info</button>
+          <button onClick={handleDisplayFunds}>Funds</button>
+          <button onClick={handleDisplayFundsForImpact}>Impact</button>
+        </div>
         <div> 
         {showSuggestions && suggestions.length > 0 && (
           <div className="dropdown" ref={suggestionDropdownRef}>
@@ -219,7 +288,7 @@ const StartupPage = () => {
         )}
         </div> 
       </div>
-      {startupInfo && (  
+      {startupInfo && displayType === 'basic' && (  
       <div>
         <div className="startup-grid">
           <div>
@@ -258,7 +327,73 @@ const StartupPage = () => {
         </div>
       </div>
     )}
-  </div>
+    {startupInfo && displayType === 'founder' && (
+        <div>
+          {founderData.map(founder => {
+            if (founder["Company Name"] === startupInfo["Company Name"]) {
+              return (
+                <div className="startup-grid">
+                  <div>
+                    <div className="startup-header">
+                      <h3>{founder["Founder Name"]}</h3>
+                    </div>
+                    <div className="startup-info">
+                      {Object.entries(founder).map(([key, value]) => (
+                        <div key={key} className="startup-field">
+                          <div className="field-name">{key}</div>
+                          <div className="field-value">{value}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          })}
+        </div>
+      )}
+      {startupInfo && displayType === 'funds' && (
+          <div>
+            <div className="startup-grid">
+              <div>
+                <div className="startup-header">
+                  <h3>{startupInfo["Company Name"]}</h3>
+                </div>
+                <div className="startup-info">
+                  {Object.entries(startupInfo).map(([key, value]) => (
+                    <div key={key} className="startup-field">
+                      <div className="field-name">{key}</div>
+                      <div className="field-value">{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {startupInfo && displayType === 'fundsForImpact' && (
+          <div>
+            {/* Render funds for impact info */}
+            <div className="startup-grid">
+              <div>
+                <div className="startup-header">
+                  <h3>{startupInfo["Company Name"]}</h3>
+                </div>
+                <div className="startup-info">
+                  {Object.entries(startupInfo).map(([key, value]) => (
+                    <div key={key} className="startup-field">
+                      <div className="field-name">{key}</div>
+                      <div className="field-value">{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+    </div>
+  
   </div>
     
   );

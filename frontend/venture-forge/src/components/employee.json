@@ -1,0 +1,66 @@
+[
+    {
+      "SPTBI_ID": 369,
+      "Company Name": "369 ZOSSWATER PRODUCTS PRIVATE LIMITED",
+      "Name of Employee": "John Doe",
+      "Gender": "Male",
+      "Joining date": "2023-01-15",
+      "Role Type": "Engineer",
+      "Exit Date": "2023-10-20"
+    },
+    {
+      "SPTBI_ID": 369,
+      "Company Name": "369 ZOSSWATER PRODUCTS PRIVATE LIMITED",
+      "Name of Employee": "Jane Smith",
+      "Gender": "Female",
+      "Joining date": "2022-11-10",
+      "Role Type": "Manager",
+      "Exit Date": "2023-09-05"
+    },
+    {
+      "SPTBI_ID": 369,
+      "Company Name": "369 ZOSSWATER PRODUCTS PRIVATE LIMITED",
+      "Name of Employee": "Michael Johnson",
+      "Gender": "Male",
+      "Joining date": "2022-09-03",
+      "Role Type": "Developer",
+      "Exit Date": null
+    },
+    {
+      "SPTBI_ID": 370,
+      "Company Name": "AMBRONICS PRIVATE LIMITED",
+      "Name of Employee": "Emily Brown",
+      "Gender": "Female",
+      "Joining date": "2023-03-08",
+      "Role Type": "Designer",
+      "Exit Date": null
+    },
+    {
+      "SPTBI_ID": 370,
+      "Company Name": "AMBRONICS PRIVATE LIMITED",
+      "Name of Employee": "David Lee",
+      "Gender": "Male",
+      "Joining date": "2022-12-20",
+      "Role Type": "Sales Executive",
+      "Exit Date": "2023-06-30"
+    },
+    {
+      "SPTBI_ID": 371,
+      "Company Name": "ARKASHINE INNOVATIONS PRIVATE LIMITED",
+      "Name of Employee": "Emma Wilson",
+      "Gender": "Female",
+      "Joining date": "2023-02-25",
+      "Role Type": "Researcher",
+      "Exit Date": null
+    },
+    {
+      "SPTBI_ID": 371,
+      "Company Name": "ARKASHINE INNOVATIONS PRIVATE LIMITED",
+      "Name of Employee": "James Anderson",
+      "Gender": "Male",
+      "Joining date": "2023-01-10",
+      "Role Type": "Analyst",
+      "Exit Date": null
+    }
+  ]
+  

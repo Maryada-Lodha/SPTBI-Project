@@ -1,0 +1,36 @@
+[
+    {
+      "SPTBI_ID": 369,
+      "Company Name": "ZOSSWATER PRODUCTS PRIVATE LIMITED",
+      "Year": 2023,
+      "Revenue": "$1,500,000",
+      "Investment raised": "$2,000,000",
+      "Employment generated": 25,
+      "Patent filled": true,
+      "Awards & recognisation": ["Best Innovation Award 2023", "Top Emerging Startup 2023"],
+      "Remark": "High growth potential"
+    },
+    {
+      "SPTBI_ID": 370,
+      "Company Name": "AMBRONICS PRIVATE LIMITED",
+      "Year": 2023,
+      "Revenue": "$1,200,000",
+      "Investment raised": "$1,800,000",
+      "Employment generated": 20,
+      "Patent filled": false,
+      "Awards & recognisation": [],
+      "Remark": "Steady growth"
+    },
+    {
+      "SPTBI_ID": 371,
+      "Company Name": "ARKASHINE INNOVATIONS PRIVATE LIMITED",
+      "Year": 2023,
+      "Revenue": "$2,000,000",
+      "Investment raised": "$3,500,000",
+      "Employment generated": 30,
+      "Patent filled": true,
+      "Awards & recognisation": ["Innovation Excellence Award 2023"],
+      "Remark": "Rapid growth"
+    }
+  ]
+  
