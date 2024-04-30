@@ -3,7 +3,8 @@ import './StartupPage.css';
 import Chart from 'chart.js/auto';
 import { useRef } from 'react';
 import ProgressBar from './ProgressBar';
-import startupData from './StartupData.json';
+
+// import startupData from './StartupData.json';
 import founderData from './Founder.json'; 
 import fundsData from './funds.json';
 import fundsForImpactData from './impact.json'
@@ -11,6 +12,8 @@ import fundsForImpactData from './impact.json'
 import Navbar from './Navbar';
 
 const StartupPage = () => {
+  const [startupData, setStatupData] = useState([])
+
   const [startupName, setStartupName] = useState('');
   const [startupInfo, setStartupInfo] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
@@ -25,6 +28,27 @@ const StartupPage = () => {
   const [displayType, setDisplayType] = useState('basic');
   const suggestionDropdownRef = useRef(null);
   let chartRef = useRef(null);
+
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/v1/basicinfo');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setStatupData(data)
+      console.log("Fetched Data");
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // Effect hook to fetch data when component mounts
+  useEffect(() => {
+    fetchData();
+  }, []);
   
 
   const handleSearch = () => {

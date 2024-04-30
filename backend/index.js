@@ -3,8 +3,14 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const connectDB = require("./db/connect");
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -30,7 +36,7 @@ app.use("/api/v1/patents", patentRouter);
 // Error handling middleware
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB("mongodb://127.0.0.1:27017/sptbi-portal");
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
