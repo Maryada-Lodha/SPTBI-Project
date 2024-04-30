@@ -12,7 +12,10 @@ import fundsForImpactData from './impact.json'
 import Navbar from './Navbar';
 
 const StartupPage = () => {
-  const [startupData, setStatupData] = useState([])
+  const [startupData, setStartupData] = useState([])
+  const [founderData, setFounderData] = useState([])
+  const [fundsData, setFundsData] = useState([])
+  const [fundsForImpactData, setFundsForImpactData] = useState([])
 
   const [startupName, setStartupName] = useState('');
   const [startupInfo, setStartupInfo] = useState(null);
@@ -32,18 +35,44 @@ const StartupPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/v1/basicinfo');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
+      // Fetch data from multiple endpoints concurrently
+      const [basicInfoResponse, foundersResponse, fundsRaisedResponse, impactsResponse] = await Promise.all([
+        fetch('http://localhost:5000/api/v1/basicinfo'),
+        fetch('http://localhost:5000/api/v1/founders'),
+        fetch('http://localhost:5000/api/v1/fundraised'),
+        fetch('http://localhost:5000/api/v1/impacts')
+      ]);
+  
+      // Check if any of the responses is not OK
+      if (!basicInfoResponse.ok || !foundersResponse.ok || !fundsRaisedResponse.ok || !impactsResponse.ok) {
+        throw new Error('Failed to fetch data from one or more endpoints');
       }
-      const data = await response.json();
-      setStatupData(data)
-      console.log("Fetched Data");
-
+  
+      // Parse response data
+      const [startupData, founderData, fundsData, fundsForImpactData] = await Promise.all([
+        basicInfoResponse.json(),
+        foundersResponse.json(),
+        fundsRaisedResponse.json(),
+        impactsResponse.json()
+      ]);
+  
+      // Set state with fetched data
+      setStartupData(startupData);
+      setFounderData(founderData)
+      setFundsData(fundsData)
+      setFundsForImpactData(fundsForImpactData)
+  
+      console.log("Fetched all Data");
+      console.log(startupData);
+      console.log(founderData);
+      console.log(fundsData);
+      console.log(fundsForImpactData);
+  
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
+  
 
   // Effect hook to fetch data when component mounts
   useEffect(() => {
