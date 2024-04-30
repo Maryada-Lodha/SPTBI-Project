@@ -64,6 +64,7 @@ const deleteInfo = async (req, res) => {
   }
 };
 
+
 module.exports = {
   getAllInfo,
   getInfoById,
