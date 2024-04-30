@@ -4,11 +4,6 @@ import Chart from 'chart.js/auto';
 import { useRef } from 'react';
 import ProgressBar from './ProgressBar';
 
-// import startupData from './StartupData.json';
-import founderData from './Founder.json'; 
-import fundsData from './funds.json';
-import fundsForImpactData from './impact.json'
-
 import Navbar from './Navbar';
 
 const StartupPage = () => {
@@ -320,10 +315,10 @@ const StartupPage = () => {
           </div>
           <div>
           {/* Buttons to switch between basic info and founder info */}
-          <button onClick={() => handleDisplayTypeChange('basic')}>Basic Info</button>
-          <button onClick={() => handleDisplayTypeChange('founder')}>Founder Info</button>
-          <button onClick={handleDisplayFunds}>Funds</button>
-          <button onClick={handleDisplayFundsForImpact}>Impact</button>
+          <button style={{margin: '3px', padding: '5px 10px'}} onClick={() => handleDisplayTypeChange('basic')}>Basic Info</button>
+          <button style={{margin: '3px', padding: '5px 10px', width:150}} onClick={() => handleDisplayTypeChange('founder')}>Founder Info</button>
+          <button style={{margin: '3px', padding: '5px 10px'}} onClick={handleDisplayFunds}>Funds</button>
+          <button style={{margin: '3px', padding: '5px 10px'}} onClick={handleDisplayFundsForImpact}>Impact</button>
         </div>
         <div> 
         {showSuggestions && suggestions.length > 0 && (
