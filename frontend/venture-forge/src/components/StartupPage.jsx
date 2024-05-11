@@ -6,7 +6,6 @@ import ProgressBar from "./ProgressBar";
 import Navbar from "./Navbar";
 import axios from "axios";
 
-
 const StartupPage = () => {
   const [startupData, setStartupData] = useState([]);
   const [founderData, setFounderData] = useState([]);
@@ -302,64 +301,68 @@ const StartupPage = () => {
         break;
     }
   };
-const handleFileChange = (e) => {
-  setFile(e.target.files[0]);
-};
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
-const handleUpload = async () => {
-  try {
-    const formData = new FormData();
-    formData.append("file", file);
+  const handleUpload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
 
-    await axios.post("http://localhost:5000/api/v1/founders/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+      await axios.post(
+        "http://localhost:5000/api/v1/founders/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-    alert("File uploaded successfully!");
-  } catch (error) {
-    console.error("Error uploading file:", error);
-    alert("Error uploading file. Please try again.");
-  }
-};
+      alert("File uploaded successfully!");
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("Error uploading file. Please try again.");
+    }
+  };
 
-const handleDownload = async () => {
-  try {
-    const response = await axios.get(
-      "http://localhost:5000/api/v1/founders/download",
-      {
-        responseType: "blob",
-      }
-    );
-    // Create a blob URL for the Excel file
-    const blob = new Blob([response.data], {
-      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    });
+  const handleDownload = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/founders/download",
+        {
+          responseType: "blob",
+        }
+      );
+      // Create a blob URL for the Excel file
+      const blob = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
 
-    const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob);
 
-    // Create a temporary anchor element and click it to trigger the download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "data.xlsx";
-    document.body.appendChild(a);
-    a.click();
+      // Create a temporary anchor element and click it to trigger the download
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.xlsx";
+      document.body.appendChild(a);
+      a.click();
 
-    // Cleanup
-    window.URL.revokeObjectURL(url);
-    document.body.removeChild(a);
-  } catch (error) {
-    console.error("Error downloading file:", error);
-    alert("Error downloading file. Please try again.");
-  }
-};
+      // Cleanup
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      alert("Error downloading file. Please try again.");
+    }
+  };
   return (
     <div>
       <div>
         <Navbar />
         <button
-          style={{ margin: "3px", padding: "5px 10px", width: 150}}
+          style={{ margin: "3px", padding: "5px 10px", width: 150 }}
           onClick={handleDownload}
         >
           Download Data
@@ -423,19 +426,19 @@ const handleDownload = async () => {
               {/* Add more options */}
             </select>
             <select onChange={(e) => womenFounderFilterchange(e.target.value)}>
-              <option value="">no. of woman founder</option>
+              <option value="">No. of Woman Founder</option>
               <option value="0 ">0</option>
               <option value="1 ">1</option>
               <option value="2 ">2</option>
               {/* Add more options */}
             </select>
             <select onChange={(e) => statusFilterchange(e.target.value)}>
-              <option value="">status</option>
+              <option value="">Status</option>
               <option value="Active">Active</option>
               {/* Add more options */}
             </select>
             <select onChange={(e) => patentStatusFilterchnage(e.target.value)}>
-              <option value="">patent status</option>
+              <option value="">Patent Status</option>
               <option value="filed">filed</option>
               <option value="granted">granted</option>
               <option value="published">published</option>
